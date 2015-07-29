@@ -1,0 +1,19 @@
+.app {
+    font-family: Helvetica, Arial;
+    font-size: 12px;
+    > header,
+    > footer {
+        padding: 10px;
+        background: #454545;
+        color: white;
+        a {
+            color: white;
+        }
+    }
+    > main {
+        padding: 10px;
+    }
+    header nav {
+        text-align: right;
+    }
+}

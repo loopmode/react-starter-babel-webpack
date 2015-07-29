@@ -1,0 +1,10 @@
+{
+	"title": "NISV client",
+	"source": "./src/app",
+	"destination": "./doc/esdoc",
+	"includes": ["\\.(js|jsx)$"],
+	"unexportIdentifier": true,
+	"undocumentIdentifier": true,
+	"scripts": ["./doc/lib/scripts/esdoc-xaiweb.js", "./doc/lib/scripts/esdoc-import-paths.js"],
+	"styles": ["./doc/lib/styles/esdoc-xaiweb.css"]
+}
