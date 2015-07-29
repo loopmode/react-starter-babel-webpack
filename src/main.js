@@ -7,7 +7,7 @@ import {Router} from 'react-router';
 import {history} from 'react-router/lib/BrowserHistory';
 import AsyncProps from 'react-router/lib/experimental/AsyncProps';
 
-import routes from 'app/routes';
+import appRoutes from 'app/routes';
 import AppView from 'app/components/AppView/AppView';
 import LoadingAnimation from 'app/components/LoadingAnimation/LoadingAnimation';
 
@@ -19,7 +19,7 @@ const appRouter = <Router
         childRoutes: [{
             path: '/',
             component: AppView,
-            childRoutes: routes,
+            childRoutes: appRoutes,
         }],
     }}
     history={history}
