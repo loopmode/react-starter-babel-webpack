@@ -26,7 +26,7 @@ export default class AppView extends React.Component {
                 {this.props.children || <StartPage />}
             </main>
             <footer>
-                <Navigation />
+                <Navigation routes={routes} />
             </footer>
         </div>;
     }
