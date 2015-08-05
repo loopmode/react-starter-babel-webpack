@@ -1,32 +1,22 @@
-import localStyles from './AppView.scss';
+import localStyles from './App.scss';
 import cx from 'classnames';
-
 import React from 'react';
-
-import routes from 'app/routes';
 
 import Navigation from 'app/components/Navigation/Navigation';
 import StartPage from 'app/pages/StartPage/StartPage';
 
-export default class AppView extends React.Component {
-
-    static loadProps(params, cb) {
-        // get some stuff loaded if you like, then invoke callback
-        setTimeout(() => {
-            cb(null, {});
-        }, 0);
-    }
+export default class App extends React.Component {
 
     render() {
         return <div className={cx('app', localStyles.this)}>
             <header>
-                <Navigation routes={routes} />
+                <Navigation routes={this.props.routes} />
             </header>
             <main>
                 {this.props.children || <StartPage />}
             </main>
             <footer>
-                <Navigation routes={routes} />
+                <Navigation routes={this.props.routes} />
             </footer>
         </div>;
     }

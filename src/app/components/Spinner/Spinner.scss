@@ -1,0 +1,35 @@
+$diameter: 16px;
+$color: black;
+$opacity: 0.3;
+$strength: 2px;
+$marker-opacity: 0.8;
+$marker-strength: 2px;
+$marker-color: black;
+:local(.Spinner) {
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    margin: 0px auto;
+    font-size: $diameter * 0.2;
+    position: relative;
+    text-indent: -9999em;
+    border-top: $strength solid rgba($color, $opacity);
+    border-right: $strength solid rgba($color, $opacity);
+    border-bottom: $strength solid rgba($color, $opacity);
+    border-left: $marker-strength solid rgba($marker-color, $marker-opacity);
+    transform: translate3d(-50%, -50%, 0);
+    animation: rotate infinite linear;
+    animation-duration: 1.1s;
+}
+
+:local(.Spinner),
+:local(.Spinner):after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+}

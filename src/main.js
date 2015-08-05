@@ -7,28 +7,32 @@ import {Router} from 'react-router';
 import {history} from 'react-router/lib/BrowserHistory';
 import AsyncProps from 'react-router/lib/experimental/AsyncProps';
 
-import appRoutes from 'app/routes';
-import AppView from 'app/components/AppView/AppView';
-import LoadingAnimation from 'app/components/LoadingAnimation/LoadingAnimation';
+import SpinnerOverlay from 'app/components/Spinner/SpinnerOverlay';
+
+import AppLoader from 'app/components/App/AppLoader';
+import AppRoutes from 'app/routes';
 
 
-const appRouter = <Router
-    routes={{
-        renderInitialLoad: () => <LoadingAnimation />,
-        component: AsyncProps,
-        childRoutes: [{
-            path: '/',
-            component: AppView,
-            childRoutes: appRoutes,
-        }],
-    }}
-    history={history}
-    createElement={AsyncProps.createElement}
-/>;
+function main() {
+    const AppRouter = <Router
+        routes={{
+            renderInitialLoad: () => <SpinnerOverlay />,
+            component: AsyncProps,
+            childRoutes: [{
+                path: '/',
+                component: AppLoader,
+                childRoutes: AppRoutes,
+            }],
+        }}
+        history={history}
+        createElement={AsyncProps.createElement}
+    />;
 
-const domElement = document.createElement('div');
-domElement.id = 'root';
-document.body.appendChild(domElement);
+    const domElement = document.createElement('div');
+    domElement.id = 'root';
+    document.body.appendChild(domElement);
 
-ReactDom.render(appRouter, domElement);
+    ReactDom.render(AppRouter, domElement);
+}
 
+main();
