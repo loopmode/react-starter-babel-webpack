@@ -14,7 +14,7 @@ export default class AppView extends React.Component {
         // get some stuff loaded if you like, then invoke callback
         setTimeout(() => {
             cb(null, {});
-        }, 3000);
+        }, 0);
     }
 
     render() {
